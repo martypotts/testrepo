@@ -1,12 +1,14 @@
 BUILDDIR = ./build
+SRCDIR = ./src
 OBJECTS = main.o
+CC = g++
 
 hello : $(OBJECTS)
-	g++ -o hello $(OBJECTS)
+	$(CC) -o hello $(OBJECTS)
 
-main.o : ./src/main.cpp
-	g++ -c ./src/main.cpp
+main.o : $(SRCDIR)/main.cpp
+	$(CC) -c $(SRCDIR)/main.cpp
 
 .PHONY : clean
 clean :
-	rm edit $(OBJECTS)
+	rm hello $(OBJECTS)
